@@ -6,7 +6,7 @@ const Contact = () => {
     const formControl = 'py-4 px-5 rounded-lg';
 
     return (
-        <div class="bg-appointment-bg h-[604px] mt-36 flex items-center justify-center">
+        <div className="bg-appointment-bg h-[604px] mt-36 flex items-center justify-center">
             <div>
                 <div className="text-center mb-10">
                         <h3 className='text-primary text-xl font-bold uppercase'>Contact Us</h3>

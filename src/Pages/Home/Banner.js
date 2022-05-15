@@ -5,7 +5,7 @@ import PrimaryBtn from '../Shared/PrimaryBtn';
 const Banner = () => {
     return (
         <section className='container mx-auto lg:px-10'>
-            <div className="hero lg:min-h-screen w-full lg:bg-hero-bg">
+            <div className="hero lg:min-h-screen 2xl:min-h-[838px]  w-full lg:bg-hero-bg">
                 <div className="hero-content flex-col lg:flex-row-reverse">
                     <img src={chair} className="max-w-sm rounded-lg shadow-2xl" alt='chair-pic'/>
                     <div>
