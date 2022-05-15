@@ -11,7 +11,7 @@ const Info = () => {
         <section className='container mx-auto md:px-10'>
             <div className='grid grid-col-1 md:grid-cols-3 gap-5 mt-5 mx-auto'>
                 <InfoCard img={clock} bgClass={bgGradient} cardTitle="Opening Hours" />
-                <InfoCard img={marker} bgClass='bg-accent' cardTitle="Visit our location" />
+                <InfoCard img={marker} bgClass="bg-neutral" cardTitle="Visit our location" />
                 <InfoCard img={phone} bgClass={bgGradient} cardTitle="Contact us now" />
             </div>
         </section>
