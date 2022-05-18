@@ -9,7 +9,7 @@ const Contact = () => {
         <div className="bg-appointment-bg h-[604px] mt-36 flex items-center justify-center">
             <div>
                 <div className="text-center mb-10">
-                        <h3 className='text-primary text-xl font-bold uppercase'>Contact Us</h3>
+                        <h3 className='text-secondary text-xl font-bold uppercase'>Contact Us</h3>
                         <h2 className='text-4xl mt-2 text-white'>Stay connected with us</h2>
                 </div>
                 <form className='flex flex-col gap-5'>

@@ -30,7 +30,7 @@ const Services = () => {
         <section className='container mx-auto md:px-10'>
             <div className='my-28 mx-auto'>
                 <div className="text-center">
-                    <h3 className='text-primary text-xl font-bold uppercase'>Our Services</h3>
+                    <h3 className='text-secondary text-xl font-bold uppercase'>Our Services</h3>
                     <h2 className='text-4xl mt-2'>Services We Provide</h2>
                 </div>
                 <div className='grid grid-cols-1 md:grid-cols-3 gap-8 mx-auto mt-4'>
