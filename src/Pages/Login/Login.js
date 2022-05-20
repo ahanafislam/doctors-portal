@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useSendPasswordResetEmail, useSignInWithEmailAndPassword, useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import auth from '../../firebase.init';
 import { useForm } from 'react-hook-form';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
@@ -7,13 +7,14 @@ import Loading from '../Shared/Loading';
 
 const Login = () => {
     const [signInWithGoogle, gUser, gLoading, gError] = useSignInWithGoogle(auth);
-    const { register, formState: { errors }, handleSubmit } = useForm();
+    const { register, getValues, formState: { errors }, handleSubmit } = useForm();
     const [
         signInWithEmailAndPassword,
         user,
         loading,
         error,
     ] = useSignInWithEmailAndPassword(auth);
+    const [sendPasswordResetEmail, sending] = useSendPasswordResetEmail(auth);
 
     // Style variable
     const formControl = 'py-4 px-5 rounded-lg border';
@@ -29,7 +30,7 @@ const Login = () => {
         }
     }, [user, gUser, from, navigate])
 
-    if (loading || gLoading) {
+    if (loading || gLoading || sending) {
         return <Loading></Loading>
     }
 
@@ -39,6 +40,19 @@ const Login = () => {
 
     const onSubmit = data => {
         signInWithEmailAndPassword(data.email, data.password);
+    }
+
+    const resetPassword = async () => {
+        const email = getValues('email');
+        await sendPasswordResetEmail(email);
+        
+        if(email) {
+            alert("Please Check Your Email.");
+        }
+
+        else {
+            alert("Please Provide email id");
+        }
     }
 
     return (
@@ -93,7 +107,7 @@ const Login = () => {
                                 {errors.password?.type === 'minLength' && <span className="label-text-alt text-red-500">{errors.password.message}</span>}
                             </label>
                         </div>
-                        <Link to="/" className='text-xs'>Forget Password?</Link>
+                        <button type='button' onClick={resetPassword} className='text-xs'>Forget Password?</button>
                         <button
                             className='btn btn-accent text-white'
                             type='submit'
