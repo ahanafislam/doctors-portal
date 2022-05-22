@@ -13,7 +13,7 @@ const MyAppointments = () => {
     let appointments = []
 
     const { isLoading, data } = useQuery(['appointments', user.email], () =>
-        fetch(`http://localhost:5000/booking?patient=${user.email}`, {
+        fetch(`https://enigmatic-scrubland-01488.herokuapp.com/booking?patient=${user.email}`, {
             method: 'GET',
             headers: {
                 'authorization': `Bearer ${localStorage.getItem('accessToken')}`
@@ -37,7 +37,7 @@ const MyAppointments = () => {
 
     // useEffect(() => {
     //     if (user) {
-    //         fetch(`http://localhost:5000/booking?patient=${user.email}`)
+    //         fetch(`https://enigmatic-scrubland-01488.herokuapp.com/booking?patient=${user.email}`)
     //             .then(res => res.json())
     //             .then(data => setAppointments(data));
     //     }
